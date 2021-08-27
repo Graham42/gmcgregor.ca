@@ -44,14 +44,34 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error);
   return (
-    <Document>
-      <h1>App Error</h1>
-      <pre>{error.message}</pre>
-      <p>
-        Replace this UI with what you want users to see when your app throws
-        uncaught errors.
-      </p>
-    </Document>
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        ></meta>
+        <link rel="stylesheet" href={stylesUrl} />
+        <title>Sorry! Something went wrong</title>
+      </head>
+      <body>
+        <main>
+          <h1>Sorry! Something went wrong...</h1>
+          {/*
+          // TODO https://github.com/Graham42/gmcgregor.ca/issues/2
+          <p>
+            Please{" "}
+            <a href={googleFormsErrorReportLink}>submit an error report</a> to
+            let us know, thank you!
+          </p> */}
+          <p>
+            If you're not sure where to go next, you could try returning to the{" "}
+            <a href="/">home page</a>
+          </p>
+        </main>
+      </body>
+    </html>
   );
 }
