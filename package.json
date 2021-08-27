@@ -8,6 +8,7 @@
     "dev": "remix dev",
     "start": "vercel dev",
     "lint:format": "prettier --check '**/*.{js,jsx,ts,tsx,html,vue,css,less,scss,graphql,yaml,yml,json,md,mdx}' ",
+    "lint:spelling": "cspell lint --no-progress '**/*'",
     "fix:format": "prettier --write '**/*.{js,jsx,ts,tsx,html,vue,css,less,scss,graphql,yaml,yml,json,md,mdx}' "
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "@remix-run/dev": "^0.17.5",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.4",
+    "cspell": "^5.8.2",
     "prettier": "^2.3.2",
     "typescript": "^4.1.2",
     "vercel": "^21.2.2"

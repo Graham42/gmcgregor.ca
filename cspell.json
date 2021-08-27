@@ -1,0 +1,21 @@
+{
+  "allowCompoundWords": true,
+  "ignoreWords": [
+    //
+    "npmrc"
+  ],
+  "words": [
+    // Products
+    "Vercel",
+
+    // names
+    "McGregor",
+    "McGregor's"
+  ],
+  "ignorePaths": [
+    //
+    "public/build/**/*",
+    "server/build/**/*",
+    "package-lock.json"
+  ]
+}
