@@ -2,6 +2,7 @@
   "private": true,
   "name": "gmcgregor.ca",
   "scripts": {
+    "postinstall": "remix setup",
     "build": "remix build",
     "dev": "remix dev",
     "start": "vercel dev",
@@ -10,16 +11,16 @@
     "fix:format": "prettier --write '**/*.{js,jsx,ts,tsx,html,vue,css,less,scss,graphql,yaml,yml,json,md,mdx}' "
   },
   "dependencies": {
-    "@remix-run/react": "^0.17.5",
+    "@remix-run/react": "^0.18.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^6.0.0-beta.0",
-    "remix": "^0.17.5",
-    "@remix-run/vercel": "^0.17.5",
+    "remix": "^0.18.2",
+    "@remix-run/vercel": "^0.18.2",
     "@vercel/node": "^1.8.3"
   },
   "devDependencies": {
-    "@remix-run/dev": "^0.17.5",
+    "@remix-run/dev": "^0.18.2",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.4",
     "cspell": "^5.8.2",
