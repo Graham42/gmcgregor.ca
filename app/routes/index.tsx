@@ -1,6 +1,7 @@
-import { MetaFunction, LinksFunction } from "remix";
+import { MetaFunction, LinksFunction, Link } from "remix";
 
 import stylesUrl from "../styles/index.css";
+import AboutMeShortContent from "../content/about-me-short-3rd.md";
 
 export let meta: MetaFunction = () => {
   return {
@@ -14,11 +15,20 @@ export let links: LinksFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Welcome to Graham McGregor's site!</h1>
-      <p>
-        This site is currently under construction. Thanks for your patience!
-      </p>
-    </div>
+    <main>
+      <h1>Graham McGregor</h1>
+      <nav>
+        <Link to="/about">About</Link>
+        <Link to="/writing">Writing</Link>
+      </nav>
+      <div>
+        <h2>About Me</h2>
+        <AboutMeShortContent />
+      </div>
+      <div>
+        <h2>Recent Posts</h2>
+        {/* For loop posts */}
+      </div>
+    </main>
   );
 }

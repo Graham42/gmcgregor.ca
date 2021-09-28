@@ -41,7 +41,7 @@ export default function App() {
     <Document>
       <Outlet />
       <footer>
-        <p>This page was rendered at {data.date.toLocaleString()}</p>
+        <p>All Materials © Graham McGregor</p>
       </footer>
     </Document>
   );
