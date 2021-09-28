@@ -8,6 +8,7 @@
     "start": "vercel dev",
     "lint:format": "prettier --check '**/*.{js,jsx,ts,tsx,html,vue,css,less,scss,graphql,yaml,yml,json,md,mdx}' ",
     "lint:spelling": "cspell lint --no-progress '**/*'",
+    "lint:types": "tsc --noEmit -p tsconfig.json",
     "fix:format": "prettier --write '**/*.{js,jsx,ts,tsx,html,vue,css,less,scss,graphql,yaml,yml,json,md,mdx}' "
   },
   "dependencies": {
