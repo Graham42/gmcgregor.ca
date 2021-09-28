@@ -1,8 +1,6 @@
 {
   "private": true,
-  "name": "remix-app-template",
-  "description": "",
-  "license": "",
+  "name": "gmcgregor.ca",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
