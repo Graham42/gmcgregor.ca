@@ -12,6 +12,7 @@
     "fix:format": "npm run prettier -- --write",
     "fix:eslint": "npm run check:eslint -- --fix",
     "build": "remix build",
+    "validate": "FORCE_COLOR=1 npm-run-all --aggregate-output --print-label --parallel check:* build",
     "dev": "remix dev",
     "postinstall": "remix setup node"
   },
@@ -32,6 +33,7 @@
     "cspell": "^5.13.0",
     "eslint": "^8.2.0",
     "eslint-plugin-react": "^7.27.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "typescript": "^4.1.2"
   },
