@@ -7,6 +7,7 @@
     "prettier": "prettier --ignore-path .gitignore \"**/*.{js,jsx,ts,tsx,html,vue,css,less,scss,graphql,yaml,yml,json,json5,md,mdx}\"",
     "check:format": "npm run prettier -- --check",
     "check:eslint": "eslint --ignore-path .gitignore .",
+    "check:types": "tsc --project ./tsconfig.json",
     "fix:format": "npm run prettier -- --write",
     "fix:eslint": "npm run check:eslint -- --fix",
     "build": "remix build",
