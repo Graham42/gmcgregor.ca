@@ -1,5 +1,7 @@
 {
   "recommendations": [
+    // Help catch spelling mistakes
+    "streetsidesoftware.code-spell-checker",
     // Highlight issues as you edit
     "dbaeumer.vscode-eslint",
     // For format on save magic

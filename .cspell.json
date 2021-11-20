@@ -1,0 +1,10 @@
+{
+  "version": "0.2",
+  "allowCompoundWords": true,
+  "words": [
+    // Products/Companies
+    "vercel",
+    // username / handles
+    "mcansh"
+  ]
+}
