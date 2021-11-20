@@ -1,3 +1,8 @@
 {
-  "recommendations": ["esbenp.prettier-vscode"]
+  "recommendations": [
+    // Highlight issues as you edit
+    "dbaeumer.vscode-eslint",
+    // For format on save magic
+    "esbenp.prettier-vscode"
+  ]
 }
