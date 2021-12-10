@@ -44,6 +44,11 @@ export default function PostList() {
             </li>
           ))
         }
+        <li>
+          <a href="https://medium.com/@Graham42x/inline-data-with-a-content-security-policy-ab30dde2feb3">
+            Inline Data With a Content Security Policy
+          </a>
+        </li>
       </ul>
     </>
   );
