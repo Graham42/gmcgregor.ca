@@ -1,0 +1,4 @@
+# lockfiles are generated so seeing them in the git diff isn't helpful, it's
+# just noise.
+# You can still see the diff if you want with `git diff --text`
+package-lock.json -diff
