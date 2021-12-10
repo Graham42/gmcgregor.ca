@@ -118,6 +118,9 @@ function Layout({ children }: { children: React.ReactNode }) {
               <li>
                 <Link to="/writing">Writing</Link>
               </li>
+              <li>
+                <a href="/rss.xml">Writing RSS</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -127,7 +130,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       </div>
       <footer className="remix-app__footer">
         <div className="container remix-app__footer-content">
-          <p>&copy; Graham McGregor</p>
+          <p>All Materials &copy; Graham McGregor</p>
         </div>
         <nav aria-label="Social links" className="remix-app__header-nav">
           <ul
