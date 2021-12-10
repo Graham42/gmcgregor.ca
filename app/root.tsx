@@ -115,7 +115,9 @@ function Layout({ children }: { children: React.ReactNode }) {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>{/* <Link to="/writing">Writing</Link> */}</li>
+              <li>
+                <Link to="/writing">Writing</Link>
+              </li>
             </ul>
           </nav>
         </div>
