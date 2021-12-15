@@ -13,6 +13,7 @@ import type { LinksFunction } from "remix";
 
 import globalStylesUrl from "~/styles/global.css";
 import { HOUR, MINUTE } from "./utils/time";
+import { useUnregisterAllServiceWorkers } from "./utils/service-worker-cleanup";
 
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStylesUrl }];
@@ -40,6 +41,7 @@ export const headers: HeadersFunction = () => {
 };
 
 export default function App() {
+  useUnregisterAllServiceWorkers();
   return (
     <Document>
       <Layout>
