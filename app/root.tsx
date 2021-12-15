@@ -1,4 +1,5 @@
 import {
+  HeadersFunction,
   Link,
   Links,
   LiveReload,
@@ -11,9 +12,31 @@ import {
 import type { LinksFunction } from "remix";
 
 import globalStylesUrl from "~/styles/global.css";
+import { HOUR, MINUTE } from "./utils/time";
 
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStylesUrl }];
+};
+
+// Currently in order to make any change to the site, a redeploy is needed, in
+// which case Vercel will purge the production cache anyways.
+const CACHE_CONTROL = [
+  `max-age=${5 * MINUTE}`,
+  // This avoids the server being invoked more than once per hour which would be
+  // inefficient. This could in theory be set to some value higher, but then it
+  // makes testing in preview environments more difficult. I might even remove
+  // this amount of caching by detecting a PROD environment variable from Vercel
+  // in order to be able to run automated tests with Cypress on a preview
+  // deploy.
+  // Reference https://vercel.com/docs/concepts/projects/environment-variables
+  // Something like: VERCEL_ENV === "production" ? [...]: []
+  `s-maxage=${1 * HOUR}`,
+  `stale-while-revalidate`,
+].join(", ");
+export const headers: HeadersFunction = () => {
+  return {
+    "Cache-Control": CACHE_CONTROL,
+  };
 };
 
 export default function App() {

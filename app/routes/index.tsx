@@ -1,4 +1,21 @@
-import type { MetaFunction } from "remix";
+import type { HeadersFunction, MetaFunction } from "remix";
+import { HOUR, MINUTE } from "~/utils/time";
+
+export const headers: HeadersFunction = () => {
+  return {
+    "Cache-Control": [
+      // Check in with the CDN every 5 minutes in case there's an update
+      `max-age=${5 * MINUTE}`,
+      // The CDN copy can be served for up to a week, but if it's more than an
+      // hour out of date, serve the stale copy and revalidate with the server.
+      // The most urgent use case I have for this page is that I publish an
+      // update to this page and in order to do that currently I would need to
+      // redeploy, in which case Vercel will purge the production cache anyways.
+      `s-maxage=${1 * HOUR}`,
+      `stale-while-revalidate`,
+    ].join(", "),
+  };
+};
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
