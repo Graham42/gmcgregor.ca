@@ -3,5 +3,17 @@
     "env": {
       "ENABLE_FILE_SYSTEM_API": "1"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/blog(/?)",
+      "destination": "/writing/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path(.*)",
+      "destination": "/writing/:path",
+      "permanent": true
+    }
+  ]
 }
