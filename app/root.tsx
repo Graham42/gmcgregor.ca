@@ -119,7 +119,33 @@ function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/writing">Writing</Link>
               </li>
               <li>
-                <a href="/rss.xml">Writing RSS</a>
+                <a href="/rss.xml">RSS</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="container remix-app__header-content"
+          style={{ paddingTop: 16 }}
+        >
+          <div></div>
+          <nav aria-label="Social links" className="remix-app__header-nav">
+            <ul
+              style={{
+                justifyContent: "center",
+                padding: 0,
+              }}
+            >
+              <li>
+                <a href="https://twitter.com/graham42x">Twitter</a>
+              </li>
+              <li>
+                <a href="https://github.com/graham42">GitHub</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/grahammcgregorx/">
+                  LinkedIn
+                </a>
               </li>
             </ul>
           </nav>
@@ -132,26 +158,6 @@ function Layout({ children }: { children: React.ReactNode }) {
         <div className="container remix-app__footer-content">
           <p>All Materials &copy; Graham McGregor</p>
         </div>
-        <nav aria-label="Social links" className="remix-app__header-nav">
-          <ul
-            style={{
-              justifyContent: "center",
-              padding: 0,
-            }}
-          >
-            <li>
-              <a href="https://twitter.com/graham42x">Twitter</a>
-            </li>
-            <li>
-              <a href="https://github.com/graham42">GitHub</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/grahammcgregorx/">
-                LinkedIn
-              </a>
-            </li>
-          </ul>
-        </nav>
       </footer>
     </div>
   );
