@@ -23,11 +23,7 @@ export default function PostList() {
 
   return (
     <>
-      <h1>Writing</h1>
-      <p>
-        {`This is a list of blog posts on this site, and other articles, that
-        I've written.`}
-      </p>
+      <h1>Writing by Graham</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.title}>
