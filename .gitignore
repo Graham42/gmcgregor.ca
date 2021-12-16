@@ -6,3 +6,6 @@ node_modules
 
 public/build
 api/build
+
+# Tailwind output
+app/styles/output.css

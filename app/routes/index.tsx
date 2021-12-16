@@ -28,9 +28,8 @@ export let meta: MetaFunction = () => {
 // https://remix.run/guides/routing#index-routes
 export default function Index() {
   return (
-    <div className="remix__page">
-      <main>
-        <h1>Graham McGregor</h1>
+    <div>
+      <main className="max-w-prose">
         <h2>About Me</h2>
         {/* TODO insert picture */}
         <p>

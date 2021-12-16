@@ -11,12 +11,12 @@ import {
 } from "remix";
 import type { LinksFunction } from "remix";
 
-import globalStylesUrl from "~/styles/global.css";
+import stylesUrl from "~/styles/output.css";
 import { HOUR, MINUTE } from "./utils/time";
 import { useUnregisterAllServiceWorkers } from "./utils/service-worker-cleanup";
 
 export let links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: globalStylesUrl }];
+  return [{ rel: "stylesheet", href: stylesUrl }];
 };
 
 // Currently in order to make any change to the site, a redeploy is needed, in
@@ -36,7 +36,8 @@ const CACHE_CONTROL = [
 ].join(", ");
 export const headers: HeadersFunction = () => {
   return {
-    "Cache-Control": CACHE_CONTROL,
+    "Cache-Control":
+      process.env.NODE_ENV === "development" ? "" : CACHE_CONTROL,
   };
 };
 
@@ -63,7 +64,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
           <hr />
           <p>
             {
-              // XXX fix this
+              // TODO XXX fix this
             }
             Hey, developer, you should replace this with what you want your
             users to see.
@@ -118,7 +119,8 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body>
+      {/* TODO consider other dark colors for background */}
+      <body className="bg-black text-neutral-100">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -130,59 +132,48 @@ function Document({
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <header className="remix-app__header">
-        <div className="container remix-app__header-content">
-          {/* <Link to="/">{"Graham's Website"}</Link> */}
-          <div></div>
-          <nav aria-label="Main navigation" className="remix-app__header-nav">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/writing">Writing</Link>
-              </li>
-              <li>
-                <a href="/rss.xml">RSS</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div
-          className="container remix-app__header-content"
-          style={{ paddingTop: 16 }}
-        >
-          <div></div>
-          <nav aria-label="Social links" className="remix-app__header-nav">
-            <ul
-              style={{
-                justifyContent: "center",
-                padding: 0,
-              }}
-            >
-              <li>
-                <a href="https://twitter.com/graham42x">Twitter</a>
-              </li>
-              <li>
-                <a href="https://github.com/graham42">GitHub</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/grahammcgregorx/">
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+    <div className="space-y-2 grid grid-flow-row auto-rows-min">
+      <header className="border-neutral-700 border-b-2 flex flex-wrap px-4 py-2 space-x-6">
+        {/* TODO add a "skip to main content anchor" */}
+        <Link to="/" className="text-red-400 font-medium italic">
+          {"Graham McGregor"}
+        </Link>
+        <nav aria-label="Main navigation" className="flex-1">
+          <ul className="flex flex-row space-x-6 justify-end">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/writing">Writing</Link>
+            </li>
+            <li>
+              <a href="/rss.xml">RSS</a>
+            </li>
+          </ul>
+        </nav>
       </header>
-      <div className="remix-app__main">
-        <div className="container remix-app__main-content">{children}</div>
+      <div className="px-4">
+        <div>{children}</div>
       </div>
-      <footer className="remix-app__footer">
-        <div className="container remix-app__footer-content">
-          <p>All Materials &copy; Graham McGregor</p>
+      <footer className="px-4 py-2 border-t-2 border-neutral-700">
+        <div>
+          <p className="text-center">All Materials &copy; Graham McGregor</p>
         </div>
+        <nav aria-label="Social links">
+          <ul className="flex flex-row space-x-6 justify-center px-6 py-2">
+            <li>
+              <a href="https://twitter.com/graham42x">Twitter</a>
+            </li>
+            <li>
+              <a href="https://github.com/graham42">GitHub</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/grahammcgregorx/">
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </nav>
       </footer>
     </div>
   );

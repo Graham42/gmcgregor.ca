@@ -2,8 +2,8 @@ import { Outlet } from "remix";
 
 export default function Writing() {
   return (
-    <div className="remix__page">
-      <main>
+    <div>
+      <main className="max-w-prose">
         <Outlet />
       </main>
     </div>

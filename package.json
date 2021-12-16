@@ -5,15 +5,19 @@
   "license": "",
   "scripts": {
     "prettier": "prettier --ignore-path .gitignore \"**/*.{js,jsx,ts,tsx,html,vue,css,less,scss,graphql,yaml,yml,json,json5,md,mdx}\"",
+    "tailwind": "tailwindcss --input ./app/styles/input.css --output ./app/styles/output.css",
     "check:format": "npm run prettier -- --check",
     "check:eslint": "eslint --ignore-path .gitignore .",
     "check:types": "tsc --project ./tsconfig.json",
     "check:spelling": "cspell --no-progress --gitignore --show-context \"**\"",
     "fix:format": "npm run prettier -- --write",
     "fix:eslint": "npm run check:eslint -- --fix",
-    "build": "remix build",
+    "build": "npm run build:css && remix build",
+    "build:css": "npm run tailwind -- --minify",
     "validate": "FORCE_COLOR=1 npm-run-all --aggregate-output --print-label --parallel check:* build",
-    "dev": "vercel dev",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:server": "vercel dev",
+    "dev:css": "npm run tailwind -- --watch",
     "prepare": "husky install",
     "postinstall": "remix setup node"
   },
@@ -39,6 +43,7 @@
     "husky": "^7.0.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.5",
     "typescript": "^4.1.2"
   },
   "engines": {

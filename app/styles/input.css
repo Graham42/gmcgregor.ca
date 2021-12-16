@@ -1,0 +1,49 @@
+/* This file will be processed by Tailwind */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply text-sky-400 border-b-2 border-transparent;
+  }
+  a:hover {
+    @apply text-sky-300 underline;
+  }
+  a:focus,
+  a:focus-visible {
+    @apply outline outline-2 outline-offset-4
+    outline-sky-300 text-sky-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-red-400;
+  }
+
+  h1 {
+    @apply text-2xl;
+    @apply my-2;
+  }
+  h2 {
+    @apply text-xl;
+    @apply my-2;
+  }
+  h3 {
+    @apply text-lg;
+    @apply my-2;
+  }
+
+  p {
+    @apply my-3;
+  }
+
+  /* TODO format <pre> & <code> */
+  /* TODO review print styles */
+  /* TODO review <hr> styles */
+}
