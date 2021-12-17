@@ -34,5 +34,11 @@
       "destination": "/writing/:path",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/favicon.ico",
+      "destination": "https://res.cloudinary.com/de1ag9l7u/image/upload/f_ico,h_32,w_32/v1639717680/gmcgregor-ca/inverted-cropped-fox_aqrfsy.png"
+    }
   ]
 }
