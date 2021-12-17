@@ -1,4 +1,4 @@
-import { Link, LinksFunction, useLoaderData } from "remix";
+import { Link, LinksFunction, MetaFunction, useLoaderData } from "remix";
 import { getPosts, isBlogPost, Post } from "~/utils/posts";
 
 export const links: LinksFunction = () => {
@@ -11,6 +11,12 @@ export const links: LinksFunction = () => {
       title: "RSS Feed for Graham McGregor's Writing",
     },
   ];
+};
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "Writing by Graham",
+  };
 };
 
 // https://remix.run/docs/en/v1/guides/mdx

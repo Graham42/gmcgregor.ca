@@ -20,7 +20,7 @@ export const headers: HeadersFunction = () => {
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
   return {
-    title: "Graham McGregor",
+    title: "Graham McGregor's Site",
     description: "Graham McGregor's website and blog",
   };
 };
