@@ -16,6 +16,7 @@ export const links: LinksFunction = () => {
 export const meta: MetaFunction = () => {
   return {
     title: "Writing by Graham",
+    description: "Blog posts and other writing by Graham McGregor",
   };
 };
 
