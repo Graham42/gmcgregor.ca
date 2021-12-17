@@ -152,9 +152,9 @@ function Layout({ children }: { children: React.ReactNode }) {
           </ul>
         </nav>
       </header>
-      <div className="px-4">
-        <div>{children}</div>
-      </div>
+
+      <div className="px-4 overflow-hidden">{children}</div>
+
       <footer className="px-4 py-2 border-t-2 border-neutral-700">
         <div>
           <p className="text-center">All Materials &copy; Graham McGregor</p>
