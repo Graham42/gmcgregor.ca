@@ -5,6 +5,14 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --primary: #ff5c61;
+  }
+
+  p {
+    color: #ff5c61;
+  }
+
   /*
   This section re-adds sensible base styles
   See tailwind removed styles at https://tailwindcss.com/docs/preflight
