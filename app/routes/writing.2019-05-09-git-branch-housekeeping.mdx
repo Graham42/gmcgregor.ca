@@ -14,10 +14,10 @@ import { Link } from "@remix-run/react";
 
 export const meta = () => {
   return [
-    { title: frontmatter.title },
+    { title: frontmatter.meta.title },
     {
       name: "description",
-      content: frontmatter.description,
+      content: frontmatter.meta.description,
     },
   ];
 };
