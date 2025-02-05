@@ -162,9 +162,6 @@ function Layout({ children }: { children: React.ReactNode }) {
         <nav aria-label="Social links">
           <ul className="flex flex-row space-x-6 justify-center px-6 py-2">
             <li>
-              <a href="https://twitter.com/graham42x">Twitter</a>
-            </li>
-            <li>
               <a href="https://github.com/graham42">GitHub</a>
             </li>
             <li>
