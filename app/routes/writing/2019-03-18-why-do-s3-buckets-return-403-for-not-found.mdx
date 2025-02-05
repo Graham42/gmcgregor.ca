@@ -14,8 +14,15 @@ meta:
 
 import { Link } from "@remix-run/react";
 
-export const meta = frontmatter.meta;
-export const headers = frontmatter.headers;
+export const meta = () => {
+  return [
+    { title: frontmatter.title },
+    {
+      name: "description",
+      content: frontmatter.description,
+    },
+  ];
+};
 
 <Link to="/writing">Back to Writing</Link>
 
