@@ -1,0 +1,68 @@
+/* This file will be processed by Tailwind */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+  This section re-adds sensible base styles
+  See tailwind removed styles at https://tailwindcss.com/docs/preflight
+  */
+
+  a {
+    @apply text-sky-400 border-b-2 border-transparent;
+  }
+  a:hover {
+    @apply text-sky-300 underline;
+  }
+  a:focus,
+  a:focus-visible {
+    @apply outline outline-2 outline-offset-4 outline-sky-300 text-sky-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-red-400;
+  }
+
+  h1 {
+    @apply text-2xl;
+    @apply my-2;
+  }
+  h2 {
+    @apply text-xl;
+    @apply my-2;
+  }
+  h3 {
+    @apply text-lg;
+    @apply my-2;
+  }
+
+  p {
+    @apply my-3;
+  }
+
+  /* TODO review print styles */
+  /* TODO review <hr> styles */
+  /* TODO add blockquote style */
+  pre {
+    @apply overflow-auto bg-neutral-700 p-1 my-1;
+  }
+  p code {
+    @apply bg-neutral-700 px-1 py-0.5 rounded-sm;
+  }
+  ul {
+    @apply list-disc pl-8 my-3;
+  }
+  nav ul {
+    @apply list-none m-0 p-0;
+  }
+  ol {
+    @apply list-decimal pl-8 my-3;
+  }
+}

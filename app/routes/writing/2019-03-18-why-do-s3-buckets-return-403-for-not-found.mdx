@@ -1,0 +1,80 @@
+---
+published: 2019-03-18T22:38:17-05:00
+tags:
+  - tech
+  - APIs
+  - security
+  - AWS
+meta:
+  title: Why do S3 Buckets Return 403 for Not Found?
+  description:
+    How to return appropriate HTTP status code, 404 Not Found, for objects in an
+    AWS S3 bucket.
+---
+
+import { Link } from "@remix-run/react";
+
+export const meta = frontmatter.meta;
+export const headers = frontmatter.headers;
+
+<Link to="/writing">Back to Writing</Link>
+
+# Why do S3 Buckets Return 403 for Not Found?
+
+We're going to dig in to why AWS has taken a strange stance on the status code
+returned for a file that doesn't exist in an S3 bucket. You may have observed
+that if you have permissions to _read_ from a bucket, but not to _list_ the
+contents of the bucket, then you will get `403 Forbidden` instead of
+`404 Not Found`.
+
+## TDLR: AWS Quick Fix
+
+If you want to get the proper `404` status for AWS S3, you need to give the user
+or role the `s3:ListBucket` permission.
+
+## Preventing a Leak
+
+It's starts with security.
+
+Enumeration attacks are where the attacker is able to make the target list the
+resources available. A resource name itself might contain sensitive information.
+Or the existence of a certain file can indicate what software is running on a
+server that would provide the attacker with a new attack vector to try.
+
+To prevent enumeration attacks, we don't want the user to know whether the
+resource doesn't exist, or the resource exists and they do not have permission
+to view it. The solution is to return the same status code for both cases to
+prevent leaking information.
+
+## `403` vs `404`?
+
+If we look at the [403 status code spec][403 spec] we see:
+
+> "If the server does not wish to make [why the request has not been fulfilled]
+> available to the client, the status code 404 (Not Found) can be used instead."
+
+And in the [404 status code spec][404 spec] there is nothing suggesting that 403
+should be returned instead.
+
+[403 spec]: https://tools.ietf.org/html/rfc7231#section-6.5.3
+[404 spec]: https://tools.ietf.org/html/rfc7231#section-6.5.4
+
+My guess would be that AWS has some legacy reason for always returning `403`
+instead of always returning `404` and is choosing to keep backwards
+compatibility over spec compliance.
+
+## Conclusion
+
+The result of the AWS S3 behavior is that properly configured S3 buckets can
+prevent enumeration attacks, which is good.
+
+For your own APIs you should not replicate the AWS S3 behavior. Instead, always
+return `404 Not Found`.
+
+## References
+
+[IANA official registry of HTTP status codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
+
+---
+
+<Link to="/writing">Back to Writing</Link>

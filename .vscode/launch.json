@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Remix Debug (WSL)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/remix",
+      "args": ["vite:dev"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}",
+      "outFiles": ["${workspaceFolder}/build/**/*.js"],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "sourceMaps": true
+    }
+  ]
+}

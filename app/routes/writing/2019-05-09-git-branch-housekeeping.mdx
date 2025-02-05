@@ -1,0 +1,73 @@
+---
+published: 2019-05-09T15:47:01-05:00
+tags:
+  - tech
+  - git
+meta:
+  title: Git Branch Housekeeping
+  description:
+    How to find branches in a local Git repo that are outdated or have been
+    deleted on the server.
+---
+
+import { Link } from "@remix-run/react";
+
+export const meta = frontmatter.meta;
+export const headers = frontmatter.headers;
+
+<Link to="/writing">Back to Writing</Link>
+
+# Git Branch Housekeeping
+
+We're going to look at how the handy `git branch -v` can help us to look for
+outdated / deleted branches in a git repository.
+
+To find out what the latest state of the remote is, including any branches that
+have been deleted, we'll run `git fetch --prune`. The `--prune` flag is what
+checks for deleted branches.
+
+The next command we need is `git branch`, by default it returns a list of branch
+names.
+
+```
+$ git branch
+* master
+  release/1.2.0
+  release/1.3.0
+```
+
+Adding `--verbose` (or `-v`) helps us out a bit more with:
+
+- An abbreviated commit SHA of where the branch is
+- How far ahead / behind the branch is compared to the remote branch it's
+  tracking.
+- The commit message summary
+
+```
+$ git branch -v
+* master        c8ff1bf [ahead 1, behind 17] Update README
+  release/1.2.0 ebeb74f [gone] Version bump to 1.3.0
+  release/1.3.0 32d9cb2 [ahead 1] Version bump for 1.3.0
+```
+
+Here we can see here that our `master` branch is out of date, the
+`release/1.2.0` branch is `gone` which means it has been deleted on the remote,
+and we have a change locally on the `release/1.3.0` branch that hasn't been
+pushed to the remote yet.
+
+If we working with multiple remotes, such as our own fork, and an upstream repo
+we can get more info by adding a second `--verbose` (or `-v`)
+
+```
+$ git branch -vv
+* master        c8ff1bf [origin/master: ahead 1, behind 17] Update README
+  release/1.2.0 ebeb74f [upstream/release/1.2.0: gone] Version bump to 1.3.0
+  release/1.3.0 32d9cb2 [upstream/release/1.3.0: ahead 1] Version bump for 1.3.0
+```
+
+Hopefully this has been helpful. If have any questions, feel free to
+[find me on Twitter](https://twitter.com/Graham42x)!
+
+---
+
+<Link to="/writing">Back to Writing</Link>
