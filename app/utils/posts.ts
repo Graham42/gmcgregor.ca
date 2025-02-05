@@ -9,7 +9,7 @@ import type { SerializeFrom } from "@vercel/remix";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function postFromModule(path: string, mod: any): BlogPost {
   let post = {
-    slug: path.replace(/.*\/routes\/writing\//, "").replace(/\.mdx?$/, ""),
+    slug: path.replace(/.*\/routes\/writing\./, "").replace(/\.mdx?$/, ""),
     published: mod.frontmatter.published,
     tags: mod.frontmatter.tags,
     ...mod.frontmatter.meta,
@@ -78,7 +78,7 @@ export function getPosts(): Array<Post> {
       tags: ["tech", "security", "web-dev"],
     },
   ];
-  const posts = import.meta.glob("../routes/writing/*.mdx", { eager: true });
+  const posts = import.meta.glob("../routes/*.mdx", { eager: true });
 
   return sortPostsNewToOld([
     //
