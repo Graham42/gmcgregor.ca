@@ -1,8 +1,6 @@
 /* This file will be processed by Tailwind */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   /*
