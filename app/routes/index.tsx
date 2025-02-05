@@ -33,10 +33,9 @@ export default function Index() {
         <h2>About Me</h2>
         {/* TODO insert picture */}
         <p>
-          Graham is a Software Developer currently working at Trend Micro
-          building the next generation of continuous delivery for Cloud One. He
-          cares deeply about building high quality tools to improve developer
-          experience.
+          Graham is a Software Developer with a depth of experience on platform
+          teams. He cares deeply about user experience, developer experience,
+          and building high quality products.
         </p>
         <p>
           Graham lives in Ontario, Canada. He enjoys cooking, indoor rock
