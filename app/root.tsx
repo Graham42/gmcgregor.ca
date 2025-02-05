@@ -47,7 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-black text-neutral-100">
         <div className="space-y-2 grid grid-flow-row auto-rows-min">
           <header className="border-neutral-700 border-b-2 flex flex-wrap px-4 py-2 space-x-6">
             {/* TODO add a "skip to main content anchor" */}
